@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int score { get; private set; }
     //reference vies
     public int vies { get; private set; }
+    //multipier le score en mangeant +1 fantome
+    public int fantomeMulti { get; private set; } = 1;
 
     public bool gameover { get; private set; }
 
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
     //réinitalisé quand pacman se fait manger
     private void ResetState()
     {
+        ResetFantomeMulti();
         for (int i = 0; i < this.fantomes.Length; i++)
         {
             this.fantomes[i].gameObject.SetActive(true);
@@ -87,12 +90,31 @@ public class GameManager : MonoBehaviour
     {
         this.vies = vies;
     }
+    //savoir si il reste encore des palettes
+    private bool RestePalette()
+    {
+        foreach (Transform palette in this.palette)
+        {
+            if (palette.gameObject.activeSelf)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    //resset le multipicateur de fantome
+    private void ResetFantomeMulti()
+    {
+        this.fantomeMulti = 1;
+    }
 
     //----fonction publique
     //quand pacman mange un fantome
     public void FantomeManger(Fantome fantome)
     {
-        SetScore(this.score + fantome.points);
+        SetScore(this.score + (fantome.points * fantomeMulti));
+        this.fantomeMulti++;
     }
     //quand un fantome mange pacman
     public void PacmanManger()
@@ -112,4 +134,28 @@ public class GameManager : MonoBehaviour
             Gameover();
         }
     }
+    //quand pacman mange une palette
+    public void PaletteManger(Palette palette)
+    {
+        palette.gameObject.SetActive(false);
+
+        SetScore(this.score + palette.points);
+
+        if (!RestePalette())
+        {
+            this.pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3.0f);
+        }
+    }
+    //quand pacman mange une super paletSte
+    public void PowerPaletteManger (PowerPalette palette)
+    {
+        
+        
+        PaletteManger(palette);
+        CancelInvoke();
+        Invoke(nameof(ResetFantomeMulti), palette.duration);
+    }
+
+   
 }
