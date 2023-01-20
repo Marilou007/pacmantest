@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     //reference vies
     public int vies { get; private set; }
 
+    public bool gameover { get; private set; }
+
     //-----------------------------------------function-------------------------------------
 
     //----------------------function general
@@ -23,6 +25,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         NewGame();
+    }
+
+    private void Update()
+    {
+        if( gameover && Input.anyKeyDown)
+        {
+            NewGame();
+        }
     }
     //reinitialisé pour une nouvelle partie
     private void NewGame()
@@ -35,6 +45,8 @@ public class GameManager : MonoBehaviour
     //reinitialisé pour une nouvelle round
     private void NewRound()
     {
+
+        gameover = false;
         foreach( Transform palette in this.palette)
         {
             palette.gameObject.SetActive(true);
@@ -95,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         else
         {
+            gameover = true;
             Gameover();
         }
     }
