@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Fantome : MonoBehaviour
 {
+    //-------------------------------------------variables-----------------------------------------
     public int points = 200;
 }

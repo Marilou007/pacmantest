@@ -26,9 +26,10 @@ public class GameManager : MonoBehaviour
     {
         NewGame();
     }
-
+    //ppur les updates
     private void Update()
     {
+        //verifie si on est en game over et si ya une touche activé
         if( gameover && Input.anyKeyDown)
         {
             NewGame();
