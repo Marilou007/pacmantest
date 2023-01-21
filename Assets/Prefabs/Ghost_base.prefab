@@ -302,6 +302,10 @@ GameObject:
   - component: {fileID: 6197736948237237451}
   - component: {fileID: 4537302071867288113}
   - component: {fileID: 1787625905523250108}
+  - component: {fileID: 242847631436293250}
+  - component: {fileID: 6070357508407864389}
+  - component: {fileID: 3458629263987310698}
+  - component: {fileID: 4334635625178904584}
   - component: {fileID: 3632988205196859736}
   m_Layer: 7
   m_Name: Ghost_base
@@ -379,6 +383,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 200
+  BahaviorDepart: {fileID: 0}
+  pacman: {fileID: 0}
+--- !u!114 &242847631436293250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149566006760316794}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c498999df15ebe47b8af5a491a91368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+--- !u!114 &6070357508407864389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149566006760316794}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b237cef161f7f2342a62428ab41476ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 7
+--- !u!114 &3458629263987310698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149566006760316794}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0aec6c019ed3f4cbcef5fc3c321af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 20
+--- !u!114 &4334635625178904584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149566006760316794}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e215178f2c9299499d9ef843d2de23b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 8
 --- !u!114 &3632988205196859736
 MonoBehaviour:
   m_ObjectHideFlags: 0

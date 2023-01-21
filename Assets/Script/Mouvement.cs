@@ -49,7 +49,7 @@ public class Mouvement : MonoBehaviour
         }
     }
 
-    private void ResetState()
+    public void ResetState()
     {
         this.vitesseMulti = 1.0f;
         this.direction = this.directionInitial;

@@ -63,10 +63,10 @@ public class GameManager : MonoBehaviour
         ResetFantomeMulti();
         for (int i = 0; i < this.fantomes.Length; i++)
         {
-            this.fantomes[i].gameObject.SetActive(true);
+            this.fantomes[i].ResetState();
         }
 
-        this.pacman.gameObject.SetActive(true);
+        this.pacman.ResetState();
     }
     //quand la partie est terminé
     private void Gameover()
