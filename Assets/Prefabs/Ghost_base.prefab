@@ -398,6 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0
+  interieur: {fileID: 0}
+  exterieur: {fileID: 0}
 --- !u!114 &6070357508407864389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +439,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 8
+  Body: {fileID: 7343084832979275493}
+  eyes: {fileID: 3254319008880363938}
+  peur: {fileID: 3758719464866579759}
+  Fin_peur: {fileID: 8127126309198511150}
 --- !u!114 &3632988205196859736
 MonoBehaviour:
   m_ObjectHideFlags: 0

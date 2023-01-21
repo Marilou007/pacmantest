@@ -33,7 +33,7 @@ public class AnimationSprite : MonoBehaviour
         InvokeRepeating(nameof(Avancer), this.tempsAnimation, this.tempsAnimation);
     }
 
-    private void Restart()
+    public void Restart()
     {
         this.animationFrame = -1;
 

@@ -150,8 +150,11 @@ public class GameManager : MonoBehaviour
     //quand pacman mange une super paletSte
     public void PowerPaletteManger (PowerPalette palette)
     {
-        
-        
+        for (int i = 0; i < this.fantomes.Length; i++)
+        {
+            this.fantomes[i].peur.Enable(palette.duration);
+        }
+
         PaletteManger(palette);
         CancelInvoke();
         Invoke(nameof(ResetFantomeMulti), palette.duration);
