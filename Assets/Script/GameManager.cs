@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 public class GameManager : MonoBehaviour
 {
     //-------------------------------------------variables-----------------------------------------
@@ -20,6 +22,13 @@ public class GameManager : MonoBehaviour
 
     public bool gameover { get; private set; }
 
+    //---------------UI
+    //reference score
+    [SerializeField] private TextMeshProUGUI textscore;
+    [SerializeField] private TextMeshProUGUI textvie;
+
+
+
     //-----------------------------------------function-------------------------------------
 
     //----------------------function general
@@ -36,7 +45,16 @@ public class GameManager : MonoBehaviour
         {
             NewGame();
         }
+
+
     }
+
+    private void Awake()
+    {
+        
+    }
+   
+
     //reinitialisé pour une nouvelle partie
     private void NewGame()
     {
@@ -84,11 +102,15 @@ public class GameManager : MonoBehaviour
     private void SetScore(int score)
     {
         this.score = score;
+
+        textscore.text = "Score: " + score.ToString();
     }
     //mettre les vies
     private void Setlives(int vies)
     {
         this.vies = vies;
+
+        textvie.text = "Vie: " + vies.ToString();
     }
     //savoir si il reste encore des palettes
     private bool RestePalette()
