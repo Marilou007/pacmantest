@@ -15,6 +15,7 @@ public class Passage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D autre)
     {
+        //changer la position du gameobject de l'autre coter
         Vector3 position = autre.transform.position; 
         position.x = connection.position.x;
         position.y = connection.position.y;
