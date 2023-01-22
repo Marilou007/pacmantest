@@ -99,6 +99,7 @@ public class FantomePeur : FantomeBehavior
     {
         if (!this.manger)
         {
+            Debug.Log("test");
             //fait en sporte qu'il fait son animation de fin de peur
             this.peur.enabled = false;
             this.Fin_peur.enabled = true;

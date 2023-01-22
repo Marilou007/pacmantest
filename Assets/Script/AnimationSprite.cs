@@ -47,7 +47,8 @@ public class AnimationSprite : MonoBehaviour
         //si l'animation n'existe pas
         if (!this.spriteRendu.enabled)
         {
-            CancelInvoke("Avancer");
+           
+            return;
             
         }
 
