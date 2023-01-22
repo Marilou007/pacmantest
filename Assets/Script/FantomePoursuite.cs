@@ -15,7 +15,7 @@ public class FantomePoursuite : FantomeBehavior
         {
             Vector2 direction = Vector2.zero;
             float minDistance = float.MaxValue;
-
+            //trouver le chemin qui permet d'etre plus proche de pacman
             foreach(Vector2 DirectionDisponible in node.DirectionDisponible)
             {
                 Vector3 newPosition = this.transform.position + new Vector3(DirectionDisponible.x, DirectionDisponible.y, 0.0f);

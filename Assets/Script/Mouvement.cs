@@ -51,6 +51,7 @@ public class Mouvement : MonoBehaviour
 
     public void ResetState()
     {
+        //remet les valeurs de base
         this.vitesseMulti = 1.0f;
         this.direction = this.directionInitial;
         this.prochaineDirection = Vector2.zero;
@@ -61,6 +62,7 @@ public class Mouvement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //faire bouger le gameobject
         Vector2 position = this.rigidbody.position;
         Vector2 transformation = this.direction * this.vitesse * this.vitesseMulti * Time.fixedDeltaTime;
         this.rigidbody.MovePosition(position + transformation);
@@ -71,12 +73,13 @@ public class Mouvement : MonoBehaviour
     ///-----fonction publique
     public void setDirection(Vector2 direction, bool force = false)
     {
+        //si le chemin est libre
         if ( force || !occupe(direction))
         {
             this.direction = direction;
             this.prochaineDirection = Vector2.zero;
         }
-
+        //si le chemin n'est pas libre
         else
         {
             this.prochaineDirection = direction;
@@ -86,6 +89,7 @@ public class Mouvement : MonoBehaviour
 
     public bool occupe(Vector2 direction)
     {
+        //verification si le chemin est libre
         RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * 0.75f, 0.0f, direction, 1.5f, this.mursLayer);
 
         return hit.collider != null;

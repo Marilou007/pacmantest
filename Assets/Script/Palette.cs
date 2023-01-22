@@ -13,6 +13,7 @@ public class Palette : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D autre)
     {
+        //verrifier que la collision soit avec pacman
         if (autre.gameObject.layer == LayerMask.NameToLayer("pacman"))
         {
             Manger();

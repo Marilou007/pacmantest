@@ -48,6 +48,7 @@ public class FantomeMaison : FantomeBehavior
         float duration = 0.5f;
         float elapsed = 0.0f;
 
+        //faire en sorte que le fantome va vers le centre de la maison
         while (elapsed < duration)
         {
             Vector3 newPosition = Vector3.Lerp(position, this.interieur.position, elapsed / duration);
@@ -59,6 +60,7 @@ public class FantomeMaison : FantomeBehavior
 
         elapsed = 0.0f;
 
+        //faire en sorte que le fantome sorte de la maison
         while (elapsed < duration)
         {
             Vector3 newPosition = Vector3.Lerp(this.interieur.position, this.exterieur.position, elapsed / duration);
@@ -68,7 +70,7 @@ public class FantomeMaison : FantomeBehavior
             yield return null;
         }
 
-
+        //faire en sorte que le fantome commence a bouger dans la map
         this.fantome.mouvement.setDirection(new Vector2(Random.value < 0.5f ? -1.0f : 1.0f, 0.0f), true); ;
         this.fantome.mouvement.rigidbody.isKinematic = false;
         this.fantome.enabled = true;

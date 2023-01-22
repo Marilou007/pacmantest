@@ -25,7 +25,7 @@ public class FantomePeur : FantomeBehavior
     public override void Enable(float duration)
     {
         base.Enable(duration);
-
+        //changer l'apparencre du fantome en peur
         this.Body.enabled = false;
         this.eyes.enabled = false;
         this.peur.enabled = true;
@@ -43,7 +43,7 @@ public class FantomePeur : FantomeBehavior
     public override void Disable()
     {
         base.Disable();
-
+        //remettre le fantome à son apparence de base
         this.Body.enabled = true;
         this.eyes.enabled = true;
         this.peur.enabled = false;
@@ -58,6 +58,7 @@ public class FantomePeur : FantomeBehavior
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //verifier si la colision est avec Pacman
         if(collision.gameObject.layer == LayerMask.NameToLayer("pacman"))
         {
             if (this.enabled)
@@ -70,12 +71,12 @@ public class FantomePeur : FantomeBehavior
     private void OnTriggerEnter2D(Collider2D autre)
     {
         Node node = autre.GetComponent<Node>();
-
+        //si fantome a peur et n'est pas manger
         if (node != null && this.enabled )
         {
             Vector2 direction = Vector2.zero;
             float maxDistance = float.MinValue;
-
+            //trouver le chemin qui permet de s'eloigner de Pacman
             foreach (Vector2 DirectionDisponible in node.DirectionDisponible)
             {
                 Vector3 newPosition = this.transform.position + new Vector3(DirectionDisponible.x, DirectionDisponible.y, 0.0f);
@@ -90,6 +91,10 @@ public class FantomePeur : FantomeBehavior
 
             this.fantome.mouvement.setDirection(direction);
         }
+
+        
+
+            
     }
 
     //----------------------------------------- function specifique------------------------------
@@ -98,6 +103,8 @@ public class FantomePeur : FantomeBehavior
     {
         if (!this.manger)
         {
+            Debug.Log("test");
+            //fait en sporte qu'il fait son animation de fin de peur
             this.peur.enabled = false;
             this.Fin_peur.enabled = true;
             this.Fin_peur.GetComponent<AnimationSprite>().Restart();
@@ -109,14 +116,14 @@ public class FantomePeur : FantomeBehavior
     private void Manger()
     {
         this.manger = true;
-
+        //met le fantome dans la maison
         Vector3 position = this.fantome.maison.interieur.position;
         position.z = this.fantome.transform.position.z ;
 
         this.fantome.transform.position = position;
 
         this.fantome.maison.Enable(this.duration);
-
+        //fait en sorte que seul les yeux soit visible
         this.Body.enabled = false;
         this.eyes.enabled = true;
         this.peur.enabled = false;

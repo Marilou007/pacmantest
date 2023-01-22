@@ -46,6 +46,7 @@ public class Fantome : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //verifier si la colission est avec pacman
         if(collision.gameObject.layer == LayerMask.NameToLayer("pacman"))
         {
             if (this.peur.enabled)
@@ -69,11 +70,13 @@ public class Fantome : MonoBehaviour
         this.poursuite.Disable();
         this.scatter.Enable();
         
+        //verifier si maison n'est pas le comportement de depart
         if(this.maison != this.BahaviorDepart)
         {
             this.maison.Disable();
         }
 
+        //verifier si il a un comportenent de depart
         if (this.BahaviorDepart != null)
         {
             this.BahaviorDepart.Enable();

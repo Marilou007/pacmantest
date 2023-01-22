@@ -41,24 +41,33 @@ public class AnimationSprite : MonoBehaviour
     }
 
     //----------------------------------------- function specifique------------------------------
-
+    //fait avancer l'animation
     private void Avancer()
     {
+        //si l'animation n'existe pas
         if (!this.spriteRendu.enabled)
         {
+           
             return;
+            
         }
 
         this.animationFrame++;
-
+        //si on atteind le dernier frame + l'animation loop
         if (this.animationFrame >= this.sprites.Length && this.loop)
         {
             this.animationFrame = 0;
         }
-
+        //s'assurer que le frame existe
         if (this.animationFrame >= 0 && this.animationFrame < this.sprites.Length)
         {
             this.spriteRendu.sprite = this.sprites[this.animationFrame];
         }
+        //anuller si l'animation ne loop pas
+        if (this.animationFrame >= this.sprites.Length && !this.loop)
+        {
+            CancelInvoke("Avancer");
+        }
+
     }
 }

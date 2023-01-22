@@ -13,12 +13,13 @@ public class FantomeScatter : FantomeBehavior
 
         if(node != null && this.enabled && !this.fantome.peur.enabled)
         {
+            //prendre une direction random
             int index = Random.Range(0, node.DirectionDisponible.Count);
-
+            //verrifier qu'on ne revient pas sur ses pas
             if (node.DirectionDisponible[index] == -this.fantome.mouvement.direction && node.DirectionDisponible.Count > 1)
             {
                 index++;
-
+                //si le nouvel index n'existe plus apres l'incrémentation
                 if(index >= node.DirectionDisponible.Count)
                 {
                     index = 0;

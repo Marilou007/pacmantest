@@ -53,10 +53,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void Awake()
-    {
-        
-    }
    
 
     //reinitialisé pour une nouvelle partie
@@ -149,13 +145,19 @@ public class GameManager : MonoBehaviour
     {
         this.pacman.gameObject.SetActive(false);
 
-        Setlives(this.vies -1);
+        //fait arreter les fantomes
+        for (int i = 0; i < this.fantomes.Length; i++)
+        {
+            this.fantomes[i].GetComponent<Mouvement>().enabled = false;
+        }
 
+        Setlives(this.vies -1);
+        //si il reste des vies
         if(this.vies > 0)
         {
             Invoke(nameof(ResetState), 3.0f);
         }
-
+        //si on a plus de vie
         else
         {
             gameover = true;
