@@ -71,7 +71,7 @@ public class FantomePeur : FantomeBehavior
     private void OnTriggerEnter2D(Collider2D autre)
     {
         Node node = autre.GetComponent<Node>();
-
+        //si fantome a peur et n'est pas manger
         if (node != null && this.enabled )
         {
             Vector2 direction = Vector2.zero;
@@ -91,6 +91,10 @@ public class FantomePeur : FantomeBehavior
 
             this.fantome.mouvement.setDirection(direction);
         }
+
+        
+
+            
     }
 
     //----------------------------------------- function specifique------------------------------
