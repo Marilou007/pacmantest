@@ -25,7 +25,11 @@ public class GameManager : MonoBehaviour
     //---------------UI
     //reference score
     [SerializeField] private TextMeshProUGUI textscore;
+    //reference vie
     [SerializeField] private TextMeshProUGUI textvie;
+    //reference gameover
+    [SerializeField] private TextMeshProUGUI gameovertext;
+
 
 
 
@@ -95,6 +99,8 @@ public class GameManager : MonoBehaviour
         }
 
         this.pacman.gameObject.SetActive(false);
+
+        gameovertext.enabled = true;
     }
 
     //----------------------------------------- function specifique------------------------------
